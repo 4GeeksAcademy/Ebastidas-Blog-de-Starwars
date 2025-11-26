@@ -3,7 +3,8 @@ import ScrollToTop from "../components/ScrollToTop"
 import { Navbar } from "../components/Navbar"
 import { Footer } from "../components/Footer"
 
-// Base component that maintains the navbar and footer throughout the page and the scroll to top functionality.
+// Componente base que mantiene la navbar y el footer en toda la página y la funcionalidad de scroll al inicio.
+
 export const Layout = () => {
     return (
         <ScrollToTop>

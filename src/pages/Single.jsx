@@ -1,25 +1,25 @@
-// Import necessary hooks and components from react-router-dom and other libraries.
-import { Link, useParams } from "react-router-dom";  // To use link for navigation and useParams to get URL parameters
-import PropTypes from "prop-types";  // To define prop types for this component
-import rigoImageUrl from "../assets/img/rigo-baby.jpg"  // Import an image asset
-import useGlobalReducer from "../hooks/useGlobalReducer";  // Import a custom hook for accessing the global state
+// Importar los hooks y componentes necesarios de react-router-dom y otras librerías.
+import { Link, useParams } from "react-router-dom";  // Para usar Link para la navegación y useParams para obtener parámetros de la URL
+import PropTypes from "prop-types";  // Para definir los tipos de props de este componente
+import rigoImageUrl from "../assets/img/rigo-baby.jpg"  // Importar un recurso de imagen
+import useGlobalReducer from "../hooks/useGlobalReducer";  // Importar un hook personalizado para acceder al estado global
 
-// Define and export the Single component which displays individual item details.
+// Definir y exportar el componente Single que muestra los detalles de un elemento individual.
 export const Single = props => {
-  // Access the global state using the custom hook.
+  // Acceder al estado global usando el hook personalizado.
   const { store } = useGlobalReducer()
 
-  // Retrieve the 'theId' URL parameter using useParams hook.
+  // Obtener el parámetro de URL 'theId' usando el hook useParams.
   const { theId } = useParams()
   const singleTodo = store.todos.find(todo => todo.id === parseInt(theId));
 
   return (
     <div className="container text-center">
-      {/* Display the title of the todo element dynamically retrieved from the store using theId. */}
+      {/* Mostrar el título del elemento todo, recuperado dinámicamente del store usando theId. */}
       <h1 className="display-4">Todo: {singleTodo?.title}</h1>
-      <hr className="my-4" />  {/* A horizontal rule for visual separation. */}
+      <hr className="my-4" />  {/* Una línea horizontal para separación visual. */}
 
-      {/* A Link component acts as an anchor tag but is used for client-side routing to prevent page reloads. */}
+      {/* Un componente Link actúa como una etiqueta anchor pero se usa para el enrutamiento del lado del cliente y evitar recargar la página. */}
       <Link to="/">
         <span className="btn btn-primary btn-lg" href="#" role="button">
           Back home
@@ -29,9 +29,9 @@ export const Single = props => {
   );
 };
 
-// Use PropTypes to validate the props passed to this component, ensuring reliable behavior.
+// Usar PropTypes para validar las props pasadas a este componente, asegurando un comportamiento confiable.
 Single.propTypes = {
-  // Although 'match' prop is defined here, it is not used in the component.
-  // Consider removing or using it as needed.
+  // Aunque la prop 'match' está definida aquí, no se usa en el componente.
+  // Considera eliminarla o usarla según sea necesario.
   match: PropTypes.object
 };
