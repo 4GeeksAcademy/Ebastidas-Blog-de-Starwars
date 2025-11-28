@@ -1,6 +1,6 @@
 // Importar los componentes necesarios de react-router-dom y de otras partes de la aplicación.
 import { Link } from "react-router-dom";
-import useGlobalReducer from "../hooks/useGlobalReducer";  // Hook personalizado para acceder al estado global.
+import {useGlobalReducer} from "../hooks/useGlobalReducer";  // Hook personalizado para acceder al estado global.
 
 export const Demo = () => {
   // Acceder al estado global y a la función dispatch usando el hook useGlobalReducer.

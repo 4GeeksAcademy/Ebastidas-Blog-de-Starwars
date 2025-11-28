@@ -26,6 +26,3 @@ body {
     transition: color 0.2s ease;
 }
 
-.card-planet, .card-character, .card-vehicle{
-    height: 350px;
-}

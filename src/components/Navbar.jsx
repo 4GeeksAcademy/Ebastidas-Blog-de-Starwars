@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import { useGlobalReducer } from '../hooks/useGlobalReducer';
+import { FcFullTrash } from "react-icons/fc";
 
 export const Navbar = () => {
+
+  const {store, dispatch}= useGlobalReducer();
+  const favorites = store.favorites;
+
+  const removeFav = (uid) => {
+    dispatch({
+      type: "REMOVE_FAVORITE",
+      payload: uid
+    })
+  }
+
   return (
 
     <nav className="navbar navbar-expand-lg text-white">
@@ -21,22 +34,39 @@ export const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto d-flex align-items-center">
-
             <li className="nav-item dropdown me-3">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Favoritos
               </a>
+              
               <ul className="dropdown-menu me-0 bg-dark">
-                <li><a className="dropdown-item text-warning" href="#">Action</a></li>
-                <li><a className="dropdown-item text-warning" href="#">Another action</a></li>
-                <li><a className="dropdown-item text-warning" href="#">Something else here</a></li>
+                {favorites.length === 0 && (
+                  <li>
+                    <span className="dropdown-item text-warning-emphasis">Add Favorites</span>
+                    </li>
+                )}
+
+                {favorites.map(fav => (
+                  <li key={fav.uid}>
+                    <span className="dropdown-item text-warning">
+                      {fav.name}
+              
+                    <FcFullTrash  className="me-2"
+                    style={{cursor: "pointer" }}
+                    onClick={() => removeFav(fav.uid)}/></span>
+                  </li>
+                ))}
+
+
               </ul>
             </li>
           </ul>
-          <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Buscador" aria-label="Search" />
-            <button className="btn btn-outline-warning" type="submit">Buscar</button>
-          </form>
+
+
+          <div className="d-flex">
+            <input className="me-2" type="text" placeholder="Buscador" aria-label="Search" />
+            <button className="btn btn-outline-warning">Buscar</button>
+          </div>
         </div>
       </div>
     </nav>
