@@ -26,8 +26,6 @@ body {
     transition: color 0.2s ease;
 }
 
-.character-title,
-.planet-title,
-.vehicle-title {
-    color: rgb(156, 156, 113);
+.card-planet, .card-character, .card-vehicle{
+    height: 350px;
 }

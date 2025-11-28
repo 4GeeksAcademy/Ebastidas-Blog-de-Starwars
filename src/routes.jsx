@@ -23,7 +23,7 @@ export const router = createBrowserRouter(
 
         {/* Rutas anidadas: Define sub-rutas dentro del componente BaseHome. */}
         <Route path= "/" element={<Home />} />
-        <Route path="/single/:theId" element={ <Single />} />  {/* Ruta dinámica para elementos individuales */}
+        <Route path="/:type/:id" element={<Single />} /> {/* Ruta dinámica para elementos individuales */}
         <Route path="/demo" element={<Demo />} />
       </Route>
     )

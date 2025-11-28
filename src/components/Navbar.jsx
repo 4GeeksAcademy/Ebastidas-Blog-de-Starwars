@@ -5,14 +5,16 @@ export const Navbar = () => {
 
     <nav className="navbar navbar-expand-lg text-white">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        
+        <Link className="navbar-brand" to="/">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/b/b8/StarWarsLogo.jpeg"
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Star_Wars_Logo_2.svg"
             alt="Logo"
-            style={{ height: "150px" }}
-            className="d-inline-block align-text-top mt-3 ms-3"
+            style={{ height: "100px" }}
+            className="d-block mx-auto mt-3"
           />
-        </a>
+        </Link>
+
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
